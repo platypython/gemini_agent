@@ -3,6 +3,9 @@
   "general": {
     "defaultApprovalMode": "default"
   },
+  "experimental": {
+    "enableAgents": false
+  },
   "context": {
     "fileName": [
       "GEMINI.md"

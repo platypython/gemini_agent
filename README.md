@@ -46,6 +46,14 @@ From the destination project:
 gemini
 ```
 
+For headless, temp-directory, or CI-style runs, trust the workspace for the process so Gemini loads project MCP servers:
+
+```sh
+GEMINI_CLI_TRUST_WORKSPACE=true gemini --skip-trust --yolo --prompt "..."
+```
+
+Without `GEMINI_CLI_TRUST_WORKSPACE=true`, Gemini may run core tools but suppress MCP servers in untrusted folders, causing Context7, Apple docs, or XcodeBuildMCP tool calls to appear unavailable.
+
 Inside Gemini CLI, run:
 
 ```text
@@ -55,6 +63,22 @@ Inside Gemini CLI, run:
 Confirm that the destination project's `GEMINI.md` is loaded. Then ask Gemini to use `code7` for a library lookup to verify Context7 starts automatically.
 
 Also confirm Gemini creates or reads the destination project's own `.agent/CONTINUITY.md`. It should not contain this repo's build history.
+
+Confirm Gemini's MCP servers are connected:
+
+```sh
+gemini mcp list
+```
+
+The expected servers are `context7`, `apple-docs`, and `xcodebuildmcp`. The instructions use Gemini's fully qualified MCP tool names, such as `mcp_context7_resolve-library-id` and `mcp_apple-docs_search_apple_docs`. Built-in subagents are disabled so required source-gate and build work uses the main session's tools.
+
+For frontend/UI projects, run a small verification prompt before relying on the setup:
+
+```text
+Create a one-file accessible under-construction page. Before editing, show the frontend source gate evidence.
+```
+
+Confirm Gemini reports a timestamp, reads continuity, performs a W3C/WAI accessibility standards lookup, and performs Context7 or official upstream docs lookup for any frontend platform or library details it uses. A plain HTML/CSS page still needs official web platform docs lookup; "no external libraries" is not enough. If those lookups do not happen before frontend file edits, treat the setup as failing.
 
 ## Notes
 

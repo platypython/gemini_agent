@@ -9,6 +9,20 @@ Use this skill whenever work touches user interface, frontend code, content stru
 - Use WAI-ARIA only when native semantics cannot express the interaction, and verify the exact pattern against current W3C/WAI documentation.
 - Treat automated accessibility tools as partial coverage. Combine them with semantic review, keyboard review, focus review, and screen-reader-oriented reasoning.
 
+## Mandatory Standards Lookup
+
+Before creating or changing any frontend/UI/content file, perform and cite a current primary-source accessibility lookup.
+
+1. Run `date -Iseconds`.
+2. Fetch the W3C/WAI WCAG overview at `https://www.w3.org/WAI/standards-guidelines/wcag/` and confirm the target conformance level.
+3. Fetch the specific W3C/WAI resource that matches the implementation risk:
+   - Use WCAG Understanding pages for success criteria such as contrast, focus visible, target size, status messages, motion, labels, headings, language, or reflow.
+   - Use the WAI-ARIA Authoring Practices Guide for ARIA roles, custom widgets, dialogs, menus, tabs, accordions, alerts, live regions, keyboard interaction, and focus patterns.
+   - Use W3C/WAI tutorials or patterns for forms, page structure, images, tables, carousels, or media when those are touched.
+4. Record the standards source URLs and the lookup date in the final answer or implementation notes.
+
+If the standards lookup cannot be completed, do not silently continue. Report the exact blocker and ask whether to proceed without current source verification.
+
 ## Required Checks
 
 - Semantics: landmarks, headings, labels, names, roles, values, list/table structure, language, and status messages are correct.
