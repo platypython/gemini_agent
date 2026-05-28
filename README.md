@@ -1,5 +1,15 @@
 # Gemini Project Assets
 
+## Why This Exists
+
+AI coding agents can go off the rails when they are given vague instructions, stale assumptions, or too much freedom to improvise. These files give Gemini a tighter operating manual: check current sources before using APIs, keep work inside the project, verify frontend accessibility, and prove iOS changes with real builds and simulator evidence.
+
+The continuity file is there to keep the agent from losing the plot. Each project gets its own `.agent/CONTINUITY.md`, where Gemini records the current plan, important decisions, discoveries, and outcomes in a short factual log. That way a later session can pick up the actual state of the work instead of guessing from old chat context.
+
+MCP servers are tool connections. Context7 gives Gemini current library and API documentation, Apple docs gives it current Apple framework references, and XcodeBuildMCP lets it build, launch, inspect, and test iOS apps in the simulator. The project instructions require Gemini to use those tools directly when the task depends on them, instead of relying on memory.
+
+The goal is simple: make Gemini behave more like a careful project contributor and less like a chatbot with shell access.
+
 This repository is a portable set of Gemini CLI project files. It is meant to be copied into an existing codebase, not used as the application repo itself.
 
 ## What To Copy
