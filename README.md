@@ -60,7 +60,7 @@ Inside Gemini CLI, run:
 /memory show
 ```
 
-Confirm that the destination project's `GEMINI.md` is loaded. Then ask Gemini to use `code7` for a library lookup to verify Context7 starts automatically.
+Confirm that the destination project's `GEMINI.md` is loaded. Then ask Gemini to use Context7 for a library lookup to verify Context7 starts automatically.
 
 Also confirm Gemini creates or reads the destination project's own `.agent/CONTINUITY.md`. It should not contain this repo's build history.
 

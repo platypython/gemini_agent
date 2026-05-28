@@ -5,7 +5,7 @@ These instructions are mandatory for Gemini CLI sessions started in this project
 ## Recency And Source Discipline
 
 - Treat memory as untrusted for library APIs, framework APIs, SDKs, CLI flags, cloud services, browser/platform behavior, accessibility standards, security-sensitive behavior, and anything described as latest/current/today/as of now.
-- Before answering or editing code that depends on an external API, first fetch current documentation with Context7. In prompts, "code7" means Context7.
+- Before answering or editing code that depends on an external API, first fetch current documentation with Context7.
 - Use this lookup flow:
   1. Resolve the library with the Context7 MCP tool `mcp_context7_resolve-library-id`.
   2. Fetch targeted docs with `mcp_context7_query-docs`.
