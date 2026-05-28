@@ -1,0 +1,12 @@
+schemaVersion: 1
+
+# Keep Gemini's tool catalog focused for normal iOS work.
+# Add "debugging", "device", or "xcode-ide" only when a task needs them.
+enabledWorkflows:
+  - simulator
+  - project-discovery
+  - swift-package
+  - ui-automation
+
+disableSessionDefaults: false
+sentryDisabled: true

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/schemas/settings.schema.json",
+  "general": {
+    "defaultApprovalMode": "default"
+  },
+  "context": {
+    "fileName": [
+      "GEMINI.md"
+    ]
+  },
+  "mcp": {
+    "allowed": [
+      "context7",
+      "apple-docs",
+      "xcodebuildmcp"
+    ]
+  },
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
+      "env": {
+        "CONTEXT7_API_KEY": "$CONTEXT7_API_KEY"
+      },
+      "timeout": 30000,
+      "trust": true,
+      "includeTools": [
+        "resolve-library-id",
+        "query-docs"
+      ]
+    },
+    "apple-docs": {
+      "httpUrl": "https://xdocs.dev/mcp",
+      "timeout": 30000,
+      "includeTools": [
+        "search_apple_docs",
+        "expand_result",
+        "list_frameworks"
+      ]
+    },
+    "xcodebuildmcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "xcodebuildmcp@latest",
+        "mcp"
+      ],
+      "timeout": 600000,
+      "trust": false,
+      "env": {
+        "XCODEBUILDMCP_CWD": "${PWD}",
+        "XCODEBUILDMCP_ENABLED_WORKFLOWS": "simulator,project-discovery,swift-package,ui-automation",
+        "XCODEBUILDMCP_MCP_IDLE_TIMEOUT_MS": "0",
+        "XCODEBUILDMCP_SENTRY_DISABLED": "true"
+      }
+    }
+  }
+}
